@@ -1,6 +1,7 @@
+<div class="a">
 <div class="row no-gutters">
   <div class="col-md-6 mt-1">
-    <div class="card">
+    <div class="card text-white trx m-2">
       <div class="card-header">Ingredient store</div>
       <div class="card-body">
         <ul>
@@ -8,7 +9,8 @@
           <li *ngFor="let ing of ingredientService.ingredients | keyvalue">
             Skład {{ing.key}}: {{ingredientService.ingredients.get(ing.key)}}
             <div class="progress">
-              <div class="progress-bar" role="progressbar" [ngStyle]="{'width': percent_of_ingredient(ing.key)}">
+              <div class="progress-bar progress-bar-success" role="progressbar"
+                   [ngStyle]="{'width': percent_of_ingredient(ing.key)}">
                 {{ingredientService.ingredients.get(ing.key)}} </div>
             </div>
           </li>
@@ -17,12 +19,12 @@
 
       </div>
       <div class="card-footer">
-        <button class="btn btn-outline-success" *ngFor="let ing of ingredientService.ingredients | keyvalue"
+        <button class="btn btn-sm btn-success m-1" *ngFor="let ing of ingredientService.ingredients | keyvalue"
                 (click)="ingredientService.ingredientShipmentArrival(ing.key, 10)">
           {{ing.key}} shipment</button>
       </div>
 
-      <button class="btn btn-outline-info"
+      <button class="btn btn-sm btn-dark m-1"
               *ngFor="let nazwa of ['Pomorskie', 'Śląskie', 'Mazowieckie', 'Małopolskie']">
         Pochodzienie {{nazwa}}
       </button>
@@ -36,20 +38,40 @@
     </div>
   </div>
   <div class="col-md-6 mt-1">
-    <div class="card">
+    <div class="card text-white trx2 m-2">
+
+
       <div class="card-header">Brew hall</div>
       <div class="card-body">
         <input type="text" class="form-control" name="beerQuantity" [(ngModel)]="beerQuantity">
-        <button class="btn btn-outline-info" (click)="brewService.ingredientsAvailable(beerQuantity, null)">
+        <button class="btn btn-warning mt-2" (click)="brewService.ingredientsAvailable(beerQuantity, null)">
           Are ingredients there for {{beerQuantity}}hL miodowe?</button>
       </div>
-      <div class="card-footer"></div>
+      <div class="card-footer">
+
+
+        Zamowienie: {{orderedUnits}} jednostek.
+
+        <div class="progress-bar" role="progressbar" [ngStyle]="{'width': prct(orderedUnits, 10)}">
+        {{orderedUnits}} </div>
+
+        <button class="btn btn-sm btn-dark mr-2" (click)="exmpl()"> + </button>
+        <button class="btn btn-sm btn-dark" (click)="exmpl2()"> - </button>
+
+        <select class="m-2">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select>
+
+      </div>
     </div>
-    <div class="card mt-1" >
+
+
+    <div class="card text-white trx m-2" >
       <div class="card-header">Beer store</div>
-      <div class="card-body text-white" style="
-      background: url('assets/brewingstorage.jpg') no-repeat center;
-      background-color: rgba(255,255,255,0.5);">
+      <div class="card-body text-white">
         <ul>
           <li> progress bar: storage of `miodowe`</li>
           <li> progress bar: storage of `porter`</li>
@@ -62,3 +84,4 @@
   </div>
 </div>
 
+</div>
