@@ -45,7 +45,7 @@ export class BreweryComponent implements OnInit {
   }
   exmpl2(){
     this.orderedUnits = this.orderedUnits - 1;
-    if(this.orderedUnits = 0){ this.orderedUnits = 0;}
+    if(this.orderedUnits<0){ this.orderedUnits = 0;}
   }
 
 }
