@@ -19,7 +19,7 @@
 
       </div>
       <div class="card-footer">
-        <button class="btn btn-sm btn-success m-1" *ngFor="let ing of ingredientService.ingredients | keyvalue"
+        <button class="btn btn-sm btn-warning m-1" *ngFor="let ing of ingredientService.ingredients | keyvalue"
                 (click)="ingredientService.ingredientShipmentArrival(ing.key, 10)">
           {{ing.key}} shipment</button>
       </div>
