@@ -20,5 +20,8 @@ export class SimpleBank implements Bank {
   get_funds(account: string): number {
     return this.funds;
   }
+  get_IBAN(): string {
+    return "IBAN_SIMPLE_001";
+  }
 
 }
